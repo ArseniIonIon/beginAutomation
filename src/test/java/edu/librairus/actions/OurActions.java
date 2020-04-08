@@ -40,16 +40,18 @@ public class OurActions {
     public void setGoToCart() throws InterruptedException{
         LibrariusPages page = new LibrariusPages();
         PageFactory.initElements(Driver.getInstance(), page);
+        Thread.sleep(2000);
         page.getClickOnCart().click();
         Thread.sleep(2000);
         page.getGoToCart().click();
     }
 
-    public void compareBookTitle(){
+    public void compareBookTitle() throws InterruptedException{
         LibrariusPages page = new LibrariusPages();
         PageFactory.initElements(Driver.getInstance(), page);
-        String title = page.getCartBookTitle().toString().trim().replace(" ","");
+        String title = page.getCartBookTitle().getText().trim().replace(" ", "");
         String expectedTitle = "Chimia.cl.10.Caietdelucraripractice";
+        Thread.sleep(2000);
         assertEquals(expectedTitle,title);
     }
 }
