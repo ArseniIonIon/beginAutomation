@@ -17,13 +17,13 @@ public class LibrariusPages {
     @FindBy(id = "addToCartButton")
     private WebElement addBookToCart;
 
-    @FindBy(className = "quick-cart")
+    @FindBy(css = "a > .hidden-xs")
     private WebElement clickOnCart;
 
-    @FindBy(xpath = "///a[contains(text(), 'Coșul meu')]")
+    @FindBy(css = ".basket-button")
     private WebElement goToCart;
 
-    @FindBy(xpath = "//div[contains(@class, 'col-sm-4 col-xs-3 tb-body')]")
+    @FindBy(xpath = "//div[@id='basket-table']/div[2]/div[3]/a")
     private WebElement cartBookTitle;
 
 

@@ -28,7 +28,7 @@ public class Steps {
         actions.setGoToCart();
     }
     @Then("^user can see added book into the cart$")
-    public void assertBook(){
+    public void assertBook()throws InterruptedException{
         actions.compareBookTitle();
     }
 
