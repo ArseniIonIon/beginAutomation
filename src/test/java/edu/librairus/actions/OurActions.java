@@ -10,8 +10,6 @@ import static org.junit.Assert.assertEquals;
 
 public class OurActions {
 
-
-
     public void hoverMenuManuale(){
         LibrariusPages page = new LibrariusPages();
         PageFactory.initElements(Driver.getInstance(), page);
@@ -54,4 +52,7 @@ public class OurActions {
         Thread.sleep(2000);
         assertEquals(expectedTitle,title);
     }
+
+
+
 }
