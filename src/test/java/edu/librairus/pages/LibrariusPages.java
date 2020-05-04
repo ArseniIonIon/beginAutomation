@@ -1,6 +1,7 @@
 package edu.librairus.pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class LibrariusPages {
@@ -25,8 +26,6 @@ public class LibrariusPages {
 
     @FindBy(xpath = "//div[@id='basket-table']/div[2]/div[3]/a")
     private WebElement cartBookTitle;
-
-
 
 
     public WebElement getManualeMainMenu() {
@@ -84,4 +83,5 @@ public class LibrariusPages {
     public void setCartBookTitle(WebElement cartBookTitle) {
         this.cartBookTitle = cartBookTitle;
     }
+
 }
