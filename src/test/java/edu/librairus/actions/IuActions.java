@@ -2,13 +2,12 @@ package edu.librairus.actions;
 
 import edu.librairus.browsers.Driver;
 import edu.librairus.pages.IuPages;
-import edu.librairus.pages.LibrariusPages;
 import org.openqa.selenium.support.PageFactory;
+
 import static org.junit.Assert.assertEquals;
-import org.openqa.selenium.interactions.Actions;
+
 
 public class IuActions {
-
 
     public void clickSearchBox() {
         IuPages page = new IuPages();
