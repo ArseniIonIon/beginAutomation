@@ -1,10 +1,11 @@
 package edu.librairus.pages;
 
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class IuPages {
+public class IuPages extends AbstractPage{
 
     @FindBy(xpath = "//input[@class='form-control']")
     private WebElement searchBoxIsClicked;
@@ -18,6 +19,9 @@ public class IuPages {
     @FindBy(xpath = "//a[@title='Alchimistul']/span[@class='book__title']")
     private WebElement bookTitle;
 
+    public IuPages(WebDriver driver) {
+        super(driver);
+    }
 
     public WebElement getSearchBoxIsClicked() {
         return searchBoxIsClicked;
