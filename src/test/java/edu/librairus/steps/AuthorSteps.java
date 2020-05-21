@@ -7,18 +7,21 @@ import cucumber.api.java.en.When;
 import edu.librairus.actions.AuthorPageActions;
 import edu.librairus.browsers.Driver;
 import edu.librairus.commonAction.Actions;
-import edu.librairus.pages.AuthorPage;
+import edu.librairus.context.ScenarioContext;
+
+import static edu.librairus.context.ScenarioContext.getScenarioContext;
 
 public class AuthorSteps extends Actions {
 
-    AuthorPageActions authorPage = new AuthorPageActions(Driver.getInstance());
-
+    private ScenarioContext scenarioContext = getScenarioContext();
+    
+    private AuthorPageActions authorPage = new AuthorPageActions(Driver.getInstance());
+    
     @Given("user navigates to Top Autori Section")
     public void userNavigatesToTopAutoriSection() throws InterruptedException {
         Thread.sleep(5);
         authorPage.hoverAllBooks();
         Thread.sleep(5);
-
     }
 
     @When("selects {string} author")

@@ -3,6 +3,8 @@ package edu.librairus.browsers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.Objects;
+
 public class Driver {
 
     private static final String CHROME_PROPERTY = "webdriver.chrome.driver";
@@ -10,7 +12,7 @@ public class Driver {
     private static WebDriver instance;
 
     public static WebDriver getInstance() {
-        if (instance == null) {
+        if (Objects.isNull(instance)) {
             System.setProperty(CHROME_PROPERTY, CHROME_PATH);
             instance = new ChromeDriver();
             instance.manage().window().maximize();

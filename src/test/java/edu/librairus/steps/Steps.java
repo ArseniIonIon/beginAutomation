@@ -6,16 +6,16 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import edu.librairus.actions.OurActions;
-import edu.librairus.pages.LibrariusPages;
+
 public class Steps {
 
     OurActions actions = new OurActions();
-
-    @Given("^user navigates to 'Manuale' -> 'Clasa 10' page$")
-    public void NavigateToClasa10Page() throws InterruptedException {
-        actions.hoverMenuManuale();
+    @Given("user navigates to '{}'")
+    public void navigateToClasa10Page(String elem) throws Exception {
         Thread.sleep(1000);
-        actions.clickOnClasa10();
+        actions.topMenuOptionsHover(elem);
+
+//        actions.clickOnClasa10();
     }
 
     @Given("^user opens specific book$")

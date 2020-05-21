@@ -1,18 +1,14 @@
 package edu.librairus.pages;
 
-import edu.librairus.browsers.Driver;
 import edu.librairus.commonAction.Actions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WrapsDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class AuthorPage {
+public class AuthorPage extends AbstractPage{
 
     @FindBy(xpath = "//*[@id=\"topMain\"]/li[1]/a")
     private WebElement books;
@@ -28,6 +24,10 @@ public class AuthorPage {
 
     @FindBy (css = "div#content dd:nth-child(2) > a")
     private WebElement bookAuthor;
+
+    public AuthorPage(WebDriver driver) {
+        super(driver);
+    }
 
     public WebElement getBookAuthor() {
         return bookAuthor;
