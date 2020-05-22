@@ -9,4 +9,3 @@ Feature: Verify books by the same author
     And the autor of book is "Пушкин А."
 
 
-   Scenario:

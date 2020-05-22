@@ -14,9 +14,9 @@ import static edu.librairus.context.ScenarioContext.getScenarioContext;
 public class AuthorSteps extends Actions {
 
     private ScenarioContext scenarioContext = getScenarioContext();
-    
-    private AuthorPageActions authorPage = new AuthorPageActions(Driver.getInstance());
-    
+
+    private AuthorPageActions authorPageActions = new AuthorPageActions();
+
     @Given("user navigates to Top Autori Section")
     public void userNavigatesToTopAutoriSection() throws InterruptedException {
         Thread.sleep(5);
