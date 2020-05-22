@@ -4,7 +4,7 @@ package edu.librairus.actions;
 import edu.librairus.context.ScenarioContext;
 import edu.librairus.pages.AuthorPage;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -35,8 +35,7 @@ public class AuthorPageActions extends Actions {
         List<WebElement> elements = authorPage.getListOfAuthor();
         Thread.sleep(100);
         for (WebElement element : elements) {
-            Actions action = new Actions(getInstance());
-            action.moveToElement(element).build().perform();
+            commonActions.moveToElement(element);
             if (element.getText().equals(autor)) {
                 element.click();
                 break;

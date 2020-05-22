@@ -38,10 +38,6 @@ public class AuthorPage extends AbstractPage{
     }
 
 
-    public List<WebElement> getListOfAuthor() {
-        return Actions.getParentElement(topAuthorsTitle).findElements((By.tagName("li")));
-    }
-
     public WebElement getCheckAutorPageElement() {
         return checkAutorPageElement;
     }

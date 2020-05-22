@@ -72,7 +72,4 @@ public class OurActions {
         assertEquals(expectedTitle,title);
         scenarioContext.saveData(CURRENT_PAGE,page);
     }
-
-
-
 }

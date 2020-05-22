@@ -28,5 +28,7 @@ public class DiscountProductSteps {
 
     @Then("price is reduced by {int}%")
     public void priceIsReducedBy(int arg0) {
+        discountPageActions.verifyDiscountedPrice();
+
     }
 }
