@@ -1,6 +1,7 @@
 package edu.librairus.pages;
 
-import edu.librairus.commonAction.Actions;
+import edu.librairus.actions.CommonActions;
+import edu.librairus.annotations.PageAccessor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+@PageAccessor(pageName = "Author page")
 public class AuthorPage extends AbstractPage{
 
     @FindBy(xpath = "//*[@id=\"topMain\"]/li[1]/a")
@@ -36,14 +38,21 @@ public class AuthorPage extends AbstractPage{
     public List<WebElement> getRandomBook(){
         return randomBook.findElements(By.tagName("li"));
     }
-
-
     public WebElement getCheckAutorPageElement() {
         return checkAutorPageElement;
     }
 
     public WebElement getBooks() {
         return books;
+    }
+
+    public WebElement getTopAuthorsTitle() {
+        return topAuthorsTitle;
+    }
+
+    @Override
+    public WebElement getAnchorElement() {
+        return super.getAnchorElement();
     }
 }
 

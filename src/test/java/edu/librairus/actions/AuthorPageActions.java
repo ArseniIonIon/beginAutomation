@@ -15,13 +15,11 @@ import static edu.librairus.browsers.Driver.getInstance;
 import static edu.librairus.context.ScenarioContext.getScenarioContext;
 import static edu.librairus.context.ScenarioKeys.CURRENT_PAGE;
 
-public class AuthorPageActions extends Actions {
+public class AuthorPageActions{
 
     private ScenarioContext scenarioContext = getScenarioContext();
 
-    public AuthorPageActions(WebDriver driver) {
-        super(driver);
-    }
+    private CommonActions commonActions = new CommonActions();
 
     public void hoverAllBooks() {
         AuthorPage authorPage = new AuthorPage(getInstance());
@@ -32,7 +30,7 @@ public class AuthorPageActions extends Actions {
 
     public void clickOnAuthor(String autor) throws InterruptedException {
         AuthorPage authorPage = (AuthorPage) scenarioContext.getData(CURRENT_PAGE);
-        List<WebElement> elements = authorPage.getListOfAuthor();
+        List<WebElement> elements = commonActions.getParentElement(authorPage.getTopAuthorsTitle()).findElements(By.tagName("li"));
         Thread.sleep(100);
         for (WebElement element : elements) {
             commonActions.moveToElement(element);
@@ -43,19 +41,33 @@ public class AuthorPageActions extends Actions {
         }
     }
 
-    public void checkAutorPage() {
-        AuthorPage authorPage = (AuthorPage) scenarioContext.getData(CURRENT_PAGE);
-        Assert.assertTrue(authorPage.getCheckAutorPageElement().isDisplayed());
-    }
-
-    public void clickOnRandomBook() {
+    public void clickOnRandomBook(String bookName) {
         AuthorPage authorPage = (AuthorPage) scenarioContext.getData(CURRENT_PAGE);
         List<WebElement> elements = authorPage.getRandomBook();
+
+        for (int i=0; i<elements.size(); i++){
+            commonActions.moveToElement(elements.get(i));
+            if (elements.get(i).findElement(By.cssSelector("span.book__title")).equals(bookName)){
+                System.out.println(elements.get(i).getText());
+                elements.get(i).click();
+            }
+        }
+
+       /* for (WebElement element:elements) {
+            if (element.getText().equals(bookName)){
+                commonActions.moveToElement(element);
+                element.click();
+                break;
+            }else {
+                System.out.println("no elem found");
+            }
+        }
+
         Random random = new Random();
         int randomValue = random.nextInt(elements.size());
         Actions actions = new Actions(getInstance());
         actions.moveToElement(elements.get(randomValue));
-        elements.get(randomValue).click();
+        elements.get(randomValue).click();*/
     }
 
     public void verifyAuthorBook(String autorBook) {
@@ -64,4 +76,5 @@ public class AuthorPageActions extends Actions {
         Assert.assertEquals(autor,autorBook);
 
     }
+
 }

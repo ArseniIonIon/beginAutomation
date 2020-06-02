@@ -18,6 +18,8 @@ public class DiscountPageActions {
 
     private ScenarioContext scenarioContext = getScenarioContext();
 
+    private CommonActions commonActions = new CommonActions();
+
     public void clickOnDiscountProducts() {
         DiscountProductPage discountProductPage = new DiscountProductPage(getInstance());
         discountProductPage.getDiscountsPage().click();

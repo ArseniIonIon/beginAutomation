@@ -8,12 +8,12 @@ import java.util.Objects;
 public class Driver {
 
     private static final String CHROME_PROPERTY = "webdriver.chrome.driver";
-    private static final String CHROME_PATH = "src\\test\\resources\\drivers\\chromedriver.exe";
+    private static final String CHROME_PATH_83 = "src\\test\\resources\\drivers\\version83\\chromedriver.exe";
     private static WebDriver instance;
 
     public static WebDriver getInstance() {
         if (Objects.isNull(instance)) {
-            System.setProperty(CHROME_PROPERTY, CHROME_PATH);
+            System.setProperty(CHROME_PROPERTY, CHROME_PATH_83);
             instance = new ChromeDriver();
             instance.manage().window().maximize();
         }
