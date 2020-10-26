@@ -43,13 +43,12 @@ public class AuthorSteps  {
     }
     @And("open {} author's book")
     public void clickOnAnyBook(String bookName) {
-        authorPageActions.clickOnRandomBook(bookName);
+        authorPageActions.clickOnAuthorBook(bookName);
     }
 
     @And("the autor of book is {string}")
     public void theAutorOfBookIs(String autorBook) {
         authorPageActions.verifyAuthorBook(autorBook);
     }
-
 
 }

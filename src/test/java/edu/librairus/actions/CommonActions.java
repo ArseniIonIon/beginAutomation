@@ -31,6 +31,7 @@ public class CommonActions {
     public void moveToElement(WebElement element) {
         Actions action = new Actions(getInstance());
         action.moveToElement(element);
+        action.perform();
     }
 
     public double getNumberFromElement(WebElement element) {

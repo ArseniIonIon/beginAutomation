@@ -12,15 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PageManager {
-    private static final String PATH_TO_PAGE_PAKAGES = "src\\test\\java\\edu\\librairus\\pages\\";
+        private static final String PATH_TO_PAGE_PAKAGES_1 = "src\\test\\java\\edu\\librairus\\pages\\";
+    private static final String PATH_TO_PAGE_PAKAGES = "edu.librairus.pages.";
+
 
     private static final List<Class<?>> PAGE_CLASSES = new ArrayList<>();
     public static void initPageClasses(){
-        File directory = new File(PATH_TO_PAGE_PAKAGES);
+        File directory = new File(PATH_TO_PAGE_PAKAGES_1);
         File[] files = directory.listFiles();
         for (File file: files){
             try {
-                Class<?> clazz = Class.forName(file.getName());
+                Class<?> clazz = Class.forName(PATH_TO_PAGE_PAKAGES + file.getName().replace(".java", ""));
                 PAGE_CLASSES.add(clazz);
             } catch (ClassNotFoundException e) {
             }
@@ -31,10 +33,14 @@ public class PageManager {
         AbstractPage abstractPage = null;
         for (Class claz : PAGE_CLASSES) {
             PageAccessor annotation = (PageAccessor) claz.getAnnotation(PageAccessor.class);
-            if (pageName.equals(annotation.pageName())){
+
+
+            if (annotation!=null && pageName.equals(annotation.pageName()) ){
                 try {
                     Constructor constructor = claz.getConstructor(WebDriver.class);
                     abstractPage = (AbstractPage) constructor.newInstance(Driver.getInstance());
+                    // to do, add postinit
+                    break;
                 } catch (NoSuchMethodException |InstantiationException |IllegalAccessException| InvocationTargetException e) {
                     e.printStackTrace();
                 }

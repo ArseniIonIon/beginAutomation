@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-@PageAccessor(pageName = "Author page")
+@PageAccessor(pageName = "Author")
 public class AuthorPage extends AbstractPage{
 
     @FindBy(xpath = "//*[@id=\"topMain\"]/li[1]/a")
@@ -22,7 +22,7 @@ public class AuthorPage extends AbstractPage{
     private WebElement checkAutorPageElement;
 
     @FindBy (css = "#content > section > div > div.col-xs-12.col-md-9.page-content > ul")
-    private WebElement randomBook;
+    private WebElement allBooks;
 
     @FindBy (css = "div#content dd:nth-child(2) > a")
     private WebElement bookAuthor;
@@ -35,13 +35,9 @@ public class AuthorPage extends AbstractPage{
         return bookAuthor;
     }
 
-    public List<WebElement> getRandomBook(){
-        return randomBook.findElements(By.tagName("li"));
+    public List<WebElement> getAllBooks(){
+        return allBooks.findElements(By.tagName("li"));
     }
-    public WebElement getCheckAutorPageElement() {
-        return checkAutorPageElement;
-    }
-
     public WebElement getBooks() {
         return books;
     }
@@ -52,7 +48,7 @@ public class AuthorPage extends AbstractPage{
 
     @Override
     public WebElement getAnchorElement() {
-        return super.getAnchorElement();
+        return checkAutorPageElement;
     }
 }
 
